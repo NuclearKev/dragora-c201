@@ -130,7 +130,7 @@ under the name /dev/sda. If you use an SD card, you will have something like
   ```
   # mkfs.ext4 /dev/sda2
   ```
-* Now it is time to extract the rootfs tarball onto our external media. Let us
+* Extract the rootfs tarball onto our external media. Let us
   go somewhere safe:
   ```
   # cd /tmp
@@ -139,7 +139,7 @@ under the name /dev/sda. If you use an SD card, you will have something like
   ```
   # mkdir root
   ```
-  * Now download the tarball:
+  * Download the tarball:
   ```
   # wget http://dragora.org/dragora3/arm/dragora-arm-3.0.0-rootfs.tar.lz
   ```
