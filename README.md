@@ -35,12 +35,12 @@ guide but you may use an SD card. It is recommended that you use an 8GB one. You
 should also make sure that you have the newest version of ChromeOS on your
 system. You probably already do.
 
+**If you installed libreboot on your system, you can skip these steps**
+
 ## Enabling Developer Mode
 In order to have access to a shell on ChromeOS, you will need to enable
 developer mode. You will also need developer mode to enable external booting
 and to disable signed kernel verification.
-
-**If you installed libreboot on your system, you can skip these steps**
 
 To enable developer mode:
 * Hold down the  `ESC` and `refresh` (the circular arrow) keys then power on the
