@@ -95,6 +95,7 @@ under the name /dev/sda. If you use an SD card, you will have something like
   Kernel -S 1 -T 5 -P 10 /dev/sda`
 * Run the command `# cgpt show /dev/sda`
   * It will print out something like this:
+  ```
   localhost / # cgpt show /dev/sda
        start        size    part  contents
            0           1          PMBR
@@ -106,6 +107,7 @@ under the name /dev/sda. If you use an SD card, you will have something like
 
     15633375          32          Sec GPT table
     15633407           1          Sec GPT header
+	```
   * Take the *start number* from the GPT table sector (in this example, it's
     15633375) and subtract 40960 from it. In my case, that's 15592415. Take that
     number and replace it where the "xxxxxx" is in this command: `# cgpt add -i
