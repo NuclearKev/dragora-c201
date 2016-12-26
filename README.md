@@ -12,4 +12,6 @@ recommend removing the original BIOS, coreboot, with the fully-free
 libreboot. This will not only make the system more free but it will actually
 boot slightly fast this way. Plus it removes the ChromeOS nonsense at
 startup. This is *not* a guide for libreboot; that is
-found <https://libreboot.org/docs/install/c201.html><here>.
+found [here][libreboot-howto].
+
+[libreboot-howto]: https://libreboot.org/docs/install/c201.html
