@@ -86,14 +86,23 @@ for our partitioning scheme. **Make sure that you change the device (/dev/sdX or
 under the name /dev/sda. If you use an SD card, you will have something like
 /dev/mmcblk1.**
 
-* Start by creating a new GPT table like so: `# fdisk /dev/sda`
+* Start by creating a new GPT table like so:
+```
+# fdisk /dev/sda
+```
   * Then type `g` and press enter. This will create a new GPT table on the
     media.
   * Now type `w` and press enter to write the data to the media.
-* Now we can create the GPT scheme with: `# cgpt create /dev/sda`
-* Create a kernel partition with: `# cgpt add -i 1 -t kernel -b 8192 -s 32768 -l
-  Kernel -S 1 -T 5 -P 10 /dev/sda`
-* Run the command `# cgpt show /dev/sda`
+* Now we can create the GPT scheme with:
+```
+# cgpt create /dev/sda
+```
+* Create a kernel partition with:
+```
+# cgpt add -i 1 -t kernel -b 8192 -s 32768 -l Kernel -S 1 -T 5 -P 10 /dev/sda
+```
+* Run the command
+```# cgpt show /dev/sda```
   * It will print out something like this:
   ```
   localhost / # cgpt show /dev/sda
@@ -110,20 +119,38 @@ under the name /dev/sda. If you use an SD card, you will have something like
 	```
   * Take the *start number* from the GPT table sector (in this example, it's
     15633375) and subtract 40960 from it. In my case, that's 15592415. Take that
-    number and replace it where the "xxxxxx" is in this command: `# cgpt add -i
-    2 -t data -b 40960 -s xxxxxx -l Root /dev/sda`. This will create a root
-    partition that will fill up the rest of the device.
+    number and replace it where the "xxxxxx" is in this command:
+	```
+	# cgpt add -i 2 -t data -b 40960 -s xxxxxx -l Root /dev/sda
+	```
+	This will create a root partition that will fill up the rest of the device.
   * NOTE: I have yet to test have multiple partitions such as /tmp, /boot, etc.
 * Now that you have both partitions made it's time to populate them. Format your
-  second partition to ext4: `# mkfs.ext4 /dev/sda2`
+  second partition to ext4:
+  ```
+  # mkfs.ext4 /dev/sda2
+  ```
 * Now it is time to extract the rootfs tarball onto our external media. Let us
-  go somewhere safe: `# cd /tmp`
-  * While here create a new directory to mount our media: `# mkdir root`
-  * Now download the tarball: `# wget
-    http://dragora.org/dragora3/arm/dragora-arm-3.0.0-rootfs.tar.lz`
-  * Mount your media to the temporary directory: `# mount /dev/sda2 root`
-  * Finally, unpack the tarball into the temporary directory: `# tar -xf
-    dragora-arm-3.0.0-rootfs.tar.lz -C root`
+  go somewhere safe:
+  ```
+  # cd /tmp
+  ```
+  * While here create a new directory to mount our media:
+  ```
+  # mkdir root
+  ```
+  * Now download the tarball:
+  ```
+  # wget http://dragora.org/dragora3/arm/dragora-arm-3.0.0-rootfs.tar.lz
+  ```
+  * Mount your media to the temporary directory:
+  ```
+  # mount /dev/sda2 root
+  ```
+  * Finally, unpack the tarball into the temporary directory:
+  ```
+  # tar -xf dragora-arm-3.0.0-rootfs.tar.lz -C root
+  ```
 * You have a very minimal version of Dragora 3 installed to the media now.
 
 # Flashing the Kernel
@@ -131,12 +158,20 @@ By the time these instruction are found on Dragora's site, we will have the
 kinks worked out. As of now, the instructions for flashing the kernel aren't
 exactly like this, however, they will be similar to this:
 
-* Run the following command to flash the kernel to the kernel partition: `# dd
-  if=root/boot/vmlinux.kpart of=/dev/sda1`
+* Run the following command to flash the kernel to the kernel partition:
+```
+# dd if=root/boot/vmlinux.kpart of=/dev/sda1
+```
 * **NOTE: Remember to change /dev/sda1 to the appropriate value for your
   device!**
-* Unmount the device: `# umount root`
-* Sync the system for good measure: `# sync`
+* Unmount the device:
+```
+# umount root
+```
+* Sync the system for good measure:
+```
+# sync
+```
 
 At this point you should have a working Dragora 3 install. Before rebooting the
 system, read through the next few sections for some more information and
