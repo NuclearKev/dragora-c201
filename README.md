@@ -177,3 +177,13 @@ At this point you should have a working Dragora 3 install. Before rebooting the
 system, read through the next few sections for some more information and
 possible issues you may run into. If you don't want to read anymore, reboot the
 system and happy hacking!
+
+# Creating a Bootable Kernel
+This is the hard part...
+
+# Sources
+* https://archlinuxarm.org/platforms/armv7/rockchip/asus-chromebook-flip-c100p#installation
+* https://wiki.debian.org/InstallingDebianOn/Asus/C201
+* https://plus.google.com/+OlofJohansson/posts/34PYU79eUqP
+* https://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices/custom-firmware
+* Some dude from freenode #parabola
