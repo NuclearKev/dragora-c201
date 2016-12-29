@@ -85,13 +85,11 @@ for our partitioning scheme. **Make sure that you change the device (/dev/sdX or
 under the name /dev/sda. If you use an SD card, you will have something like
 /dev/mmcblk1.**
 
-* Start by creating a new GPT table like so:
-```
-# fdisk /dev/sda
-```
-	* Then type `g` and press enter. This will create a new GPT table on the
+* Start by creating a new GPT table like so: `# fdisk /dev/sda`
+  * Then type `g` and press enter. This will create a new GPT table on the
     media.
-	* Now type `w` and press enter to write the data to the media.
+  * Now type `w` and press enter to write the data to the media.
+
 * Now we can create the GPT scheme with:
 ```
 # cgpt create /dev/sda
