@@ -152,8 +152,8 @@ under the name /dev/sda. If you use an SD card, you will have something like
 
 # Flashing the Kernel
 By the time these instruction are found on Dragora's site, we will have the
-kinks worked out. As of now, the instructions for flashing the kernel aren't
-exactly like this, however, they will be similar to this:
+kinks worked out. As of now, the instructions for flashing the kernel would
+theoretically be like this:
 
 * Run the following command to flash the kernel to the kernel partition:
 ```
@@ -196,11 +196,11 @@ currently one of the major bugs with using Linux-libre
 There are a few things you're going to need in order to create your own
 Linux-libre binary. I'll explain this just in case I don't update to the version
 that you wish to use. This will give you the freedom to choose whatever version
-of Linux-libre you want! Firstly, you will a copy of Linux-libre, whether from
-source or just binary forms. **If you choose the binary forms, make sure that
-there is AT LEAST a vmlinuz or zImage AND dtbs directory.** You will need them!
-If you choose to compile from source be sure to do `make ${MAKEFLAGS} zImage
-modules dtbs` to create the dtbs directory and the zImage file.
+of Linux-libre you want! Firstly, you will need a copy of Linux-libre, whether
+from source or just binary forms. **If you choose the binary forms, make sure
+that there is AT LEAST a vmlinuz or zImage AND dtbs directory.** You will need
+them!  If you choose to compile from source be sure to do `make ${MAKEFLAGS}
+zImage modules dtbs` to create the dtbs directory and the zImage file.
 
 Once you have a the necessary items from the kernel itself, you will need to get
 a hold of a few items.
@@ -217,8 +217,10 @@ a hold of a few items.
 Once you've collected all of the programs and files listed you can run the
 `make-c201-kernel.sh` script and it should create a kernel that you can copy to
 the kernel partition of your external media. **Make sure to double check that
-everything is correct for your system and device before running it!** If you're
-a do-it-yourself kind of person, you can follow the in depth guide that follows.
+everything is correct for your system and device before running it!** Simply run
+`# dd if=newkernel of=/dev/${kernel-partition}` replacing `${kernel-partition}`
+with the correct partition. If you're a do-it-yourself kind of person, you can
+follow the in depth guide that follows.
 
 ## In-Depth Guide
 Too lazy right now.
@@ -227,8 +229,9 @@ Too lazy right now.
 * White screen booting issue
   * See [Booting with Linux-libre](#booting-with-linux-libre) for information.
 * No eMMC recognition.
-  * Debian has a fix for this, however, I haven't got it working yet. Find
-    it [here][deb].
+  * Debian has a [fix][deb] for this, however, I haven't got it working
+    yet.
+
 [deb]: https://wiki.debian.org/InstallingDebianOn/Asus/C201#Mainline_Linux_Kernel
 
 # Sources
