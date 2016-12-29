@@ -179,7 +179,7 @@ system and happy hacking!
 Let me guess, you tried to boot your new fully-free system and it didn't
 work. You got stuck at a white screen. This is actually a good thing! This is
 currently one of the major bugs with using Linux-libre
-(see [Bugs](#Bugs)). This is a fairly annoying bug but follow these steps:
+(see [Bugs](#bugs)). This is a fairly annoying bug but follow these steps:
 
 * Power off the device.
 * Unplug all external devices. (SD Card and thumb drives)
@@ -225,7 +225,7 @@ Too lazy right now.
 
 # Bugs
 * White screen booting issue
-  * See [Booting with Linux-libre](#Booting-with-Linux-libre) for information.
+  * See [Booting with Linux-libre](#booting-with-linux-libre) for information.
 * No eMMC recognition.
   * Debian has a fix for this, however, I haven't got it working yet. Find
     it [here][deb].
