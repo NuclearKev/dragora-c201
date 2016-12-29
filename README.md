@@ -5,7 +5,7 @@ attempt to make it easy to understand. This will not only help you install
 Dragora but should also help you boot your own modified version of
 Linux/Linux-libre or any ARM-supported GNU/Linux distributions on the C201.
 
-v# Recommendations
+# Recommendations
 Before I start, there are some recommendations I would like to give. I highly
 recommend removing the original BIOS, coreboot, with the
 fully-free [libreboot][libreboot-home]. This will not only make the system more
@@ -179,7 +179,7 @@ system and happy hacking!
 Let me guess, you tried to boot your new fully-free system and it didn't
 work. You got stuck at a white screen. This is actually a good thing! This is
 currently one of the major bugs with using Linux-libre
-(see [Bugs][/Bugs/]). This is a fairly annoying bug but follow these steps:
+(see [Bugs](#Bugs)). This is a fairly annoying bug but follow these steps:
 
 * Power off the device.
 * Unplug all external devices. (SD Card and thumb drives)
@@ -192,17 +192,44 @@ currently one of the major bugs with using Linux-libre
   * If it doesn't boot, try these steps again. It may take a couple (it took me
     4-5) tries until the system boots.
 
+# Creating a Bootable Kernel
+There are a few things you're going to need in order to create your own
+Linux-libre binary. I'll explain this just in case I don't update to the version
+that you wish to use. This will give you the freedom to choose whatever version
+of Linux-libre you want! Firstly, you will a copy of Linux-libre, whether from
+source or just binary forms. **If you choose the binary forms, make sure that
+there is AT LEAST a vmlinuz or zImage AND dtbs directory.** You will need them!
+If you choose to compile from source be sure to do `make ${MAKEFLAGS} zImage
+modules dtbs` to create the dtbs directory and the zImage file.
+
+Once you have a the necessary items from the kernel itself, you will need to get
+a hold of a few items.
+* `vbutil_kernel`
+  * This program will create signed kernels for you to boot.
+* `mkimage`
+  * This will make the image for `vbutil_kernel` to sign.
+* All the items in this repo
+  * `kernel.keyblock` and `kernel_data_key.vbprivk` for kernel signing
+  * `config.txt` for proper booting
+  * `kernel.its` to create the correct image for the C201 (may need modified)
+  * `make-c201-kernel.sh` to make it all work
+
+Once you've collected all of the programs and files listed you can run the
+`make-c201-kernel.sh` script and it should create a kernel that you can copy to
+the kernel partition of your external media. **Make sure to double check that
+everything is correct for your system and device before running it!** If you're
+a do-it-yourself kind of person, you can follow the in depth guide that follows.
+
+## In-Depth Guide
+Too lazy right now.
+
 # Bugs
 * White screen booting issue
   * See [Booting with Linux-libre](#Booting-with-Linux-libre) for information.
 * No eMMC recognition.
   * Debian has a fix for this, however, I haven't got it working yet. Find
-    it [here][emmc].
-
-[emmc]: https://wiki.debian.org/InstallingDebianOn/Asus/C201#Mainline_Linux_Kernel
-
-# Creating a Bootable Kernel
-This is the hard part...
+    it [here][deb].
+[deb]: https://wiki.debian.org/InstallingDebianOn/Asus/C201#Mainline_Linux_Kernel
 
 # Sources
 * https://archlinuxarm.org/platforms/armv7/rockchip/asus-chromebook-flip-c100p#installation
