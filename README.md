@@ -5,7 +5,7 @@ attempt to make it easy to understand. This will not only help you install
 Dragora but should also help you boot your own modified version of
 Linux/Linux-libre or any ARM-supported GNU/Linux distributions on the C201.
 
-# Recommendations
+v# Recommendations
 Before I start, there are some recommendations I would like to give. I highly
 recommend removing the original BIOS, coreboot, with the
 fully-free [libreboot][libreboot-home]. This will not only make the system more
@@ -194,12 +194,12 @@ currently one of the major bugs with using Linux-libre
 
 # Bugs
 * White screen booting issue
-  * See [Booting with Linux-libre][/Booting with Linux-libre/] for information.
+  * See [Booting with Linux-libre](#Booting-with-Linux-libre) for information.
 * No eMMC recognition.
   * Debian has a fix for this, however, I haven't got it working yet. Find
-    it [here][debian-emmc].
+    it [here][emmc].
 
-[debian-emmc]: https://wiki.debian.org/InstallingDebianOn/Asus/C201#Mainline_Linux_Kernel
+[emmc]: https://wiki.debian.org/InstallingDebianOn/Asus/C201#Mainline_Linux_Kernel
 
 # Creating a Bootable Kernel
 This is the hard part...
