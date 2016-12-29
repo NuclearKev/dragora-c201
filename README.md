@@ -2,9 +2,8 @@
 This repo is a guide on how to install Dragora version 3 on the C201
 Chromebook. Some of the things require some GNU/Linux know-how but I will
 attempt to make it easy to understand. This will not only help you install
-Dragora but should also help you boot your own modified version of Linux or
-Linux-libre on the C201. That being said, you should be able to boot any
-ARM-supported GNU/Linux distribution with the generic parts of the guide.
+Dragora but should also help you boot your own modified version of
+Linux/Linux-libre or any ARM-supported GNU/Linux distributions on the C201.
 
 # Recommendations
 Before I start, there are some recommendations I would like to give. I highly
@@ -26,16 +25,16 @@ they are fully free. They can be found on [ThinkPenguin][think].
 I also recommend that you install your system on an external source (at least
 8GB is good). Just in case things go wrong, you can still use ChromeOS to fix
 the issues. Once you've gotten a working external system, you can then install
-onto the internal eMMC at your *own risk.*
+onto the internal eMMC at your *own risk* for it hasn't been tested yet.
 
 # Prerequisites
 Before you can boot anything, you must do some stuff on ChromeOS. First and
 foremost, you are going to want an external media. I used a thumb drive in this
-guide but you may use an SD card. It is recommended that you use an 8GB one. You
-should also make sure that you have the newest version of ChromeOS on your
-system. You probably already do.
+guide but you may use an SD card. It is recommended that you use an 8GB one
+because this guide assumes you are using one. You should also make sure that you
+have the newest version of ChromeOS on your system but you probably already do.
 
-**If you installed libreboot on your system, you can skip these steps**
+**If you installed libreboot on your system, you can skip all prerequisites!**
 
 ## Enabling Developer Mode
 In order to have access to a shell on ChromeOS, you will need to enable
@@ -90,9 +89,9 @@ under the name /dev/sda. If you use an SD card, you will have something like
 ```
 # fdisk /dev/sda
 ```
-  * Then type `g` and press enter. This will create a new GPT table on the
+	* Then type `g` and press enter. This will create a new GPT table on the
     media.
-  * Now type `w` and press enter to write the data to the media.
+	* Now type `w` and press enter to write the data to the media.
 * Now we can create the GPT scheme with:
 ```
 # cgpt create /dev/sda
