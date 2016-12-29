@@ -175,6 +175,35 @@ system, read through the next few sections for some more information and
 possible issues you may run into. If you don't want to read anymore, reboot the
 system and happy hacking!
 
+# Booting with Linux-libre
+Let me guess, you tried to boot your new fully-free system and it didn't
+work. You got stuck at a white screen. This is actually a good thing! This is
+currently one of the major bugs with using Linux-libre (see [Bugs][bug]). This
+is a fairly annoying bug but follow these steps:
+
+* Power off the device.
+* Unplug all external devices. (SD Card and thumb drives)
+* Reset the system by holding the `refresh` and `power` keys.
+  * The system will reboot and the screen will turn off quickly. Note that the
+    power LED will remain on as long as you hold the `power` key.
+* Plug in the media you wish to boot off and power on the device.
+  * You should get "stuck" on the white screen again. Wait approximately 2-3
+    minutes and hopefully it will boot.
+  * If it doesn't boot, try these steps again. It may take a couple (it took me
+    4-5) tries until the system boots.
+
+[bug]: # Bugs
+
+# Bugs
+* White screen booting issue
+  * See [Booting with Linux-libre][booting] for information.
+* No eMMC recognition.
+  * Debian has a fix for this, however, I haven't got it working yet. Find
+    it [here][debian-emmc].
+
+[booting]: # Booting with Linux-libre
+[debian-emmc]: https://wiki.debian.org/InstallingDebianOn/Asus/C201#Mainline_Linux_Kernel
+
 # Creating a Bootable Kernel
 This is the hard part...
 
