@@ -231,7 +231,7 @@ Too lazy right now.
 * White screen booting issue
   * See [Booting with Linux-libre](#booting-with-linux-libre) for information.
 * No eMMC recognition.
-  * Debian has a [fix][emmc] for this, however, I haven't got it working
+  * [Debian][emmc] has a fix for this, however, I haven't got it working
     yet.
 
 [emmc]: https://wiki.debian.org/InstallingDebianOn/Asus/C201#Mainline_Linux_Kernel
