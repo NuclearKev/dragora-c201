@@ -221,20 +221,14 @@ Once you've collected all of the programs and files listed you can run the
 the kernel partition of your external media. **Make sure to double check that
 everything is correct for your system and device before running it!** Simply run
 `# dd if=newkernel of=/dev/${kernel-partition}` replacing `${kernel-partition}`
-with the correct partition. If you're a do-it-yourself kind of person, you can
-follow the in depth guide that follows.
-
-## In-Depth Guide
-Too lazy right now.
+with the correct partition.
 
 # Bugs
 * White screen booting issue
   * See [Booting with Linux-libre](#booting-with-linux-libre) for information.
 * No eMMC recognition.
-  * [Debian][emmc] has a fix for this, however, I haven't got it working
+  * Debian has a fix for this, however, I haven't got it working
     yet.
-
-[emmc]: https://wiki.debian.org/InstallingDebianOn/Asus/C201#Mainline_Linux_Kernel
 
 # Sources
 * https://archlinuxarm.org/platforms/armv7/rockchip/asus-chromebook-flip-c100p#installation
