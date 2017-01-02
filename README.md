@@ -206,6 +206,8 @@ Once you have a the necessary items from the kernel itself, you will need to get
 a hold of a few items.
 * `vbutil_kernel`
   * This program will create signed kernels for you to boot.
+  * It can be obtained from the default ChromeOS install on the eMMC or from
+    your package manager usually under the name `vboot-utils`.
 * `mkimage`
   * This will make the image for `vbutil_kernel` to sign.
 * All the items in this repo
@@ -229,10 +231,10 @@ Too lazy right now.
 * White screen booting issue
   * See [Booting with Linux-libre](#booting-with-linux-libre) for information.
 * No eMMC recognition.
-  * Debian has a [fix][deb] for this, however, I haven't got it working
+  * Debian has a [fix][emmc] for this, however, I haven't got it working
     yet.
 
-[deb]: https://wiki.debian.org/InstallingDebianOn/Asus/C201#Mainline_Linux_Kernel
+[emmc]: https://wiki.debian.org/InstallingDebianOn/Asus/C201#Mainline_Linux_Kernel
 
 # Sources
 * https://archlinuxarm.org/platforms/armv7/rockchip/asus-chromebook-flip-c100p#installation
