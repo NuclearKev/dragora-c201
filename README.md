@@ -90,16 +90,16 @@ under the name /dev/sda. If you use an SD card, you will have something like
     media.
   * Now type `w` and press enter to write the data to the media.
 
-* Now we can create the GPT scheme with:
-```
-# cgpt create /dev/sda
-```
-	* If you do not have this program, you can install it from your package
-manager or steal it from ChromeOS by doing the following:
+* Obtain `cgpt` either from your package manager or steal it from ChromeOS like
+so:
 ```
 # mount -o ro /dev/mmcblk0p3 /mnt
 # cp /mnt/usr/bin/cgpt /usr/bin
 # umount /mnt
+```
+* Now we can create the GPT scheme with:
+```
+# cgpt create /dev/sda
 ```
 * Create a kernel partition with:
 ```
