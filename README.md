@@ -252,6 +252,48 @@ config. It makes more sense to use this when scripting. Obtain it like this:
 # cp /mnt/usr/bin/dump_kernel_config /usr/bin
 ```
 
+# Installing to the eMMC (NOT TESTED)
+As the header suggests, this section is purely theoretical and hasn't been
+tested yet. According to [Debian][emmc], installing onto the eMMC requires you
+to simply copy everything off your external media. Boot on your external media
+and follow these steps to do so:
+* Start by shrinking the ROOT-A and ROOT-B partitions:
+```
+# cgpt add -i 3 -s 32 /dev/mmcblk0
+# cgpt add -i 5 -s 32 /dev/mmcblk0
+```
+* Expand the STATE partition:
+```
+# cgpt add -i 1 -b 282688 -s 30470080 /dev/mmcblk0
+```
+* Reformat the partition to ext4:
+```
+mkfs.ext4 /dev/mmcblk0p1
+```
+* Copy everything on your external media (be patient, this will take a while):
+```
+# mount -t ext4 /dev/mmcblk0p1 /mnt
+# cp -ax / /mnt
+# umount /mnt
+```
+* According to Debian, you need to reconfigure the kernel. I'm not sure if this
+  is actually necessary, thus, I won't put it here yet.
+* Flash your kernel to the eMMC's kernel partition:
+```
+# dd if=/mnt/boot/yourkernel of=/dev/mmcblk0p2
+```
+* Also according to Debian, you also should set the priorities of the kernel
+  partitions:
+  ```
+  # cgpt add -i 2 -P 10 -S 1 /dev/mmcblk0
+  # cgpt add -i 4 -P 0 -S 0 /dev/mmcblk0
+  ```
+
+In theory, you should now be able to boot off the eMMC onto your new Dragora
+system!
+
+[emmc]: https://wiki.debian.org/InstallingDebianOn/Asus/C201#Installing_to_internal_memory_from_SD_card
+
 # Bugs
 * White screen booting issue
   * See [Booting with Linux-libre](#booting-with-linux-libre) for information.
