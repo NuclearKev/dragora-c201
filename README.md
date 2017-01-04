@@ -94,8 +94,8 @@ under the name /dev/sda. If you use an SD card, you will have something like
 ```
 # cgpt create /dev/sda
 ```
-** If you do not have this program, you can install it from your package manager
-or steal it from ChromeOS by doing the following:
+	* If you do not have this program, you can install it from your package
+manager or steal it from ChromeOS by doing the following:
 ```
 # mount -o ro /dev/mmcblk0p3 /mnt
 # cp /mnt/usr/bin/cgpt /usr/bin
@@ -250,7 +250,6 @@ config. It makes more sense to use this when scripting. Obtain it like this:
 ```
 # cp /mnt/usr/bin/dump_kernel_config /usr/bin
 ```
-
 
 # Bugs
 * White screen booting issue

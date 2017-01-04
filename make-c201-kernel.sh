@@ -35,4 +35,8 @@ vbutil_kernel --pack newkernel \
 							--bootloader config.txt --config config.txt \
 							--vmlinuz kernel.itb --arch arm
 
+# Flash to kernel partition
 # dd if=newkernel of=/dev/sda1
+
+# Verfify that it's correct
+# vbutil_kernel --verify /dev/sda1
