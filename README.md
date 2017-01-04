@@ -186,7 +186,8 @@ system and happy hacking!
 Let me guess, you tried to boot your new fully-free system and it didn't
 work. You got stuck at a white screen. This is actually a good thing! This is
 currently one of the major bugs with using Linux-libre
-(see [Bugs](#bugs)). This is a fairly annoying bug but follow these steps:
+(see [Bugs](#bugs)). This bug is super annoying and will probably take you
+forever to get past it. Try the following:
 
 * Power off the device.
 * Unplug all external devices. (SD Card and thumb drives)
@@ -244,7 +245,7 @@ following:
 # umount /mnt
 ```
 The second to last step will give you access to those kernel signing files
-from before (`kernel.keyblock` and `kernel_data_key,vbprivk`). It is also a good
+from before (`kernel.keyblock` and `kernel_data_key.vbprivk`). It is also a good
 idea to obtain `dump_kernel_config` for dumping the command line, not the kernel
 config. It makes more sense to use this when scripting. Obtain it like this:
 ```
