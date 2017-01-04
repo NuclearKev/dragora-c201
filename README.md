@@ -94,6 +94,13 @@ under the name /dev/sda. If you use an SD card, you will have something like
 ```
 # cgpt create /dev/sda
 ```
+** If you do not have this program, you can install it from your package manager
+or steal it from ChromeOS by doing the following:
+```
+# mount -o ro /dev/mmcblk0p3 /mnt
+# cp /mnt/usr/bin/cgpt /usr/bin
+# umount /mnt
+```
 * Create a kernel partition with:
 ```
 # cgpt add -i 1 -t kernel -b 8192 -s 32768 -l Kernel -S 1 -T 5 -P 10 /dev/sda
@@ -206,8 +213,9 @@ Once you have a the necessary items from the kernel itself, you will need to get
 a hold of a few items.
 * `vbutil_kernel`
   * This program will create signed kernels for you to boot.
-  * It can be obtained from the default ChromeOS install on the eMMC or from
-    your package manager usually under the name `vboot-utils`.
+  * It can be [obtained](#obtaining-vbutil_kernel) from the default ChromeOS
+    install on the eMMC or from your package manager usually under the name
+    `vboot-utils`.
 * `mkimage`
   * This will make the image for `vbutil_kernel` to sign.
 * All the items in this repo
@@ -222,6 +230,27 @@ the kernel partition of your external media. **Make sure to double check that
 everything is correct for your system and device before running it!** Simply run
 `# dd if=newkernel of=/dev/${kernel-partition}` replacing `${kernel-partition}`
 with the correct partition.
+
+## Obtaining vbutil_kernel
+As mentioned, you can obtain this program by installing a package usually called
+`vboot-utils`. However, I imagine that you don't have this program nor care
+about it enough to try and build it for Dragora. Luckily, you can easily get it
+by copying it from ChromeOS. While on an externally booted system just do the
+following:
+```
+# mount -o ro /dev/mmcblk0p3 /mnt
+# cp /mnt/usr/bin/vbutil_kernel /usr/bin
+# rsync -a /mnt/usr/share/vboot /usr/share
+# umount /mnt
+```
+The second to last step will give you access to those kernel signing files
+from before (`kernel.keyblock` and `kernel_data_key,vbprivk`). It is also a good
+idea to obtain `dump_kernel_config` for dumping the command line, not the kernel
+config. It makes more sense to use this when scripting. Obtain it like this:
+```
+# cp /mnt/usr/bin/dump_kernel_config /usr/bin
+```
+
 
 # Bugs
 * White screen booting issue
