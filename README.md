@@ -254,7 +254,7 @@ config. It makes more sense to use this when scripting. Obtain it like this:
 
 # Installing to the eMMC (NOT TESTED)
 As the header suggests, this section is purely theoretical and hasn't been
-tested yet. According to [Debian][emmc], installing onto the eMMC requires you
+tested yet. According to Debian, installing onto the eMMC requires you
 to simply copy everything off your external media. Boot on your external media
 and follow these steps to do so:
 * Start by shrinking the ROOT-A and ROOT-B partitions:
@@ -291,8 +291,6 @@ mkfs.ext4 /dev/mmcblk0p1
 
 In theory, you should now be able to boot off the eMMC onto your new Dragora
 system!
-
-[emmc]: https://wiki.debian.org/InstallingDebianOn/Asus/C201#Installing_to_internal_memory_from_SD_card
 
 # Bugs
 * White screen booting issue
