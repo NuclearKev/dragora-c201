@@ -1,3 +1,7 @@
+# NOTE: This repo has been moved to [here][dragora-c201]!
+
+[dragora-c201]: https://notabug.org/nuclearkev/dragora-c201
+
 # Installing Dragora 3 on the Asus Chromebook C201
 This repo is a guide on how to install Dragora version 3 on the C201
 Chromebook. Some of the things require some GNU/Linux know-how but I will
